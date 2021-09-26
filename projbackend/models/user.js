@@ -1,34 +1,31 @@
-var mongoose = require("mongoose");
+var mongoose = require("mongoose")
 
 var userSchema = new mongoose.Schema({
-    firstname: {
+    name: {
         type: String,
         required: true,
         maxlength: 32,
         trim: true
     },
-
     lastname: {
         type: String,
         required: true,
         maxlength: 32,
         trim: true
-
     },
-
     email: {
         type: String,
-        trim: true,
         required: true,
+        trim: true,
         unique: true
     },
-
     userinfo: {
         type: String,
-        trim: true
+        required: true
     },
 
-    //TO DO: Comeback here
+    //ToDo come back here for salt
+
     password: {
         type: String,
         trim: true
@@ -38,12 +35,10 @@ var userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-
     purchases: {
         type: Array,
         default: []
     }
-
 });
 
 module.exports = mongoose.model("User", userSchema)
